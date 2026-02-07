@@ -21,7 +21,7 @@ export default function ServicesPage() {
 
           <AnimateOnScroll>
             <div className="rounded-2xl bg-gradient-to-br from-surface to-background-secondary p-12 text-center sm:p-16">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="font-heading text-3xl font-bold sm:text-4xl">
                 Let&apos;s work together
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-lg text-foreground-muted">

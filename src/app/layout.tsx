@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Cabin_Sketch } from 'next/font/google'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { siteConfig } from '@/data/site'
@@ -8,6 +8,13 @@ import './globals.css'
 
 const inter = Inter({
   variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const cabinSketch = Cabin_Sketch({
+  variable: '--font-cabin-sketch',
+  weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
 })
@@ -39,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${cabinSketch.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
         <script
           type="application/ld+json"

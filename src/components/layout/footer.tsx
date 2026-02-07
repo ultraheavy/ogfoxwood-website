@@ -8,7 +8,7 @@ export function Footer() {
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <Link href="/" className="text-lg font-bold tracking-tight">
+            <Link href="/" className="font-heading text-lg font-bold">
               {siteConfig.name}
             </Link>
             <p className="mt-2 text-sm text-foreground-muted">

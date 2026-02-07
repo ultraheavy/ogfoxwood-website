@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { TargetAndTransition, Transition } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -33,19 +34,34 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--accent-muted)_0%,_transparent_70%)]" />
 
       <Container className="relative z-10 py-24 text-center">
+        <motion.div {...anim(0)} className="mx-auto mb-6 w-32 sm:w-40">
+          <Image
+            src="/images/DJ-FoxWood-Fox-Character.png"
+            alt="OGFoxWood fox character"
+            width={160}
+            height={220}
+            priority
+            className="mx-auto invert brightness-90 drop-shadow-[0_0_30px_rgba(212,168,67,0.2)]"
+          />
+        </motion.div>
+
         <motion.p
           className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent"
-          {...anim(0)}
+          {...anim(0.1)}
         >
           DJ / Producer / Vibe Curator
         </motion.p>
 
-        <motion.h1
-          className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl"
-          {...anim(0.2)}
-        >
-          OGFoxWood
-        </motion.h1>
+        <motion.div {...anim(0.2)} className="mx-auto mb-2 w-72 sm:w-96">
+          <Image
+            src="/images/DJ-FoxWood-Type-logo-pencil.png"
+            alt="DJ OGFoxWood"
+            width={480}
+            height={100}
+            priority
+            className="mx-auto invert brightness-90"
+          />
+        </motion.div>
 
         <motion.p
           className="mx-auto mt-6 max-w-xl text-lg text-foreground-muted sm:text-xl"

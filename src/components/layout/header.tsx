@@ -23,7 +23,7 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-accent"
+              className="font-heading text-xl font-bold text-foreground transition-colors hover:text-accent"
             >
               OGFoxWood
             </Link>
