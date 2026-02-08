@@ -1,10 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { bio } from '@/data/site'
 import { Container } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { PlaceholderImage } from '@/components/ui/placeholder-image'
 import { Button } from '@/components/ui/button'
 
 export function BioPreview() {
@@ -37,11 +37,13 @@ export function BioPreview() {
             {...slideLeft}
             className="lg:col-span-7 lg:row-start-1"
           >
-            <PlaceholderImage
+            <Image
+              src="/images/og-foxwood-portrait.png"
+              alt="OGFoxWood portrait"
               width={600}
               height={700}
-              label="OGFoxWood portrait"
-              className="mx-auto max-w-md lg:max-w-none"
+              className="mx-auto max-w-md rounded-xl object-cover lg:max-w-none"
+              sizes="(max-width: 1024px) 400px, 580px"
             />
           </motion.div>
 
