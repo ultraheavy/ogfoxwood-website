@@ -4,38 +4,39 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ────────────────────────────────────────────
-   Light theme — pencil on paper
+   Light theme — warm earth tones
+   Palette: #E8E2D8 · #BFC6C4 · #6F8F72 · #F2A65A
    ──────────────────────────────────────────── */
 :root {
-  --background: oklch(0.95 0.01 85);
-  --background-secondary: oklch(0.91 0.015 80);
-  --background-elevated: oklch(0.88 0.018 78);
-  --foreground: oklch(0.20 0.01 250);
-  --foreground-muted: oklch(0.45 0.01 250);
-  --accent: oklch(0.50 0.12 100);
-  --accent-hover: oklch(0.43 0.14 100);
-  --accent-muted: oklch(0.50 0.12 100 / 0.15);
-  --border: oklch(0.78 0.02 80);
-  --surface: oklch(0.92 0.012 82);
+  --background: oklch(0.92 0.012 85);          /* #E8E2D8 warm cream */
+  --background-secondary: oklch(0.84 0.01 170); /* tinted from #BFC6C4 sage gray */
+  --background-elevated: oklch(0.80 0.015 170); /* deeper sage gray */
+  --foreground: oklch(0.22 0.02 155);           /* dark green-tinted */
+  --foreground-muted: oklch(0.45 0.02 155);     /* muted sage */
+  --accent: oklch(0.60 0.08 148);               /* #6F8F72 sage green */
+  --accent-hover: oklch(0.78 0.13 65);          /* #F2A65A warm amber */
+  --accent-muted: oklch(0.60 0.08 148 / 0.15);  /* sage green at 15% */
+  --border: oklch(0.82 0.01 170);               /* from #BFC6C4 */
+  --surface: oklch(0.90 0.01 90);               /* between bg and secondary */
 
   /* semantic status colors */
-  --success: oklch(0.45 0.14 155);
-  --success-muted: oklch(0.45 0.14 155 / 0.12);
+  --success: oklch(0.55 0.14 148);
+  --success-muted: oklch(0.55 0.14 148 / 0.12);
   --error: oklch(0.50 0.18 25);
   --error-muted: oklch(0.50 0.18 25 / 0.12);
 
-  /* prismatic palette — the mosaic prism accent */
-  --prism-amber: oklch(0.72 0.16 85);
-  --prism-coral: oklch(0.62 0.20 20);
-  --prism-teal: oklch(0.65 0.14 190);
-  --prism-violet: oklch(0.55 0.20 300);
+  /* prismatic palette — sage, amber, earth tones */
+  --prism-amber: oklch(0.78 0.14 65);            /* #F2A65A */
+  --prism-coral: oklch(0.62 0.15 30);
+  --prism-teal: oklch(0.60 0.08 148);            /* #6F8F72 */
+  --prism-violet: oklch(0.55 0.12 300);
   --prism-gradient: linear-gradient(
     135deg,
-    var(--prism-coral),
     var(--prism-amber),
+    var(--prism-coral),
     var(--prism-teal),
     var(--prism-violet),
-    var(--prism-coral)
+    var(--prism-amber)
   );
 
   /* theme-conditional image treatment */
