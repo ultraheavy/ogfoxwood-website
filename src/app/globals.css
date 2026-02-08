@@ -50,36 +50,38 @@
 }
 
 /* ────────────────────────────────────────────
-   Dark theme — chalk on blackboard
+   Dark theme — deep navy + electric orange
+   Palette: #0D1A63 · #1A2CA3 · #2845D6 · #F68048
    ──────────────────────────────────────────── */
 .dark {
-  --background: oklch(0.13 0.01 250);
-  --background-secondary: oklch(0.19 0.01 250);
-  --background-elevated: oklch(0.09 0.015 260);
-  --foreground: oklch(0.95 0.01 90);
-  --foreground-muted: oklch(0.65 0.01 250);
-  --accent: oklch(0.78 0.11 95);
-  --accent-hover: oklch(0.85 0.13 95);
-  --accent-muted: oklch(0.78 0.11 95 / 0.18);
-  --border: oklch(0.25 0.01 250);
-  --surface: oklch(0.20 0.01 250);
+  --background: oklch(0.18 0.06 265);           /* #0D1A63 deep navy */
+  --background-secondary: oklch(0.28 0.08 265); /* #1A2CA3 royal blue */
+  --background-elevated: oklch(0.13 0.05 265);  /* deeper than base */
+  --foreground: oklch(0.95 0.01 250);            /* near white, cool */
+  --foreground-muted: oklch(0.70 0.03 265);      /* muted blue-gray */
+  --accent: oklch(0.72 0.15 45);                 /* #F68048 warm orange */
+  --accent-hover: oklch(0.80 0.17 45);           /* brighter orange */
+  --accent-muted: oklch(0.72 0.15 45 / 0.18);   /* orange at 18% */
+  --border: oklch(0.35 0.07 265);                /* from #2845D6 dimmed */
+  --surface: oklch(0.24 0.07 265);               /* between bg and secondary */
 
   --success: oklch(0.70 0.14 155);
   --success-muted: oklch(0.70 0.14 155 / 0.15);
   --error: oklch(0.70 0.16 25);
   --error-muted: oklch(0.70 0.16 25 / 0.15);
 
-  --prism-amber: oklch(0.80 0.15 85);
-  --prism-coral: oklch(0.70 0.18 20);
-  --prism-teal: oklch(0.72 0.12 190);
-  --prism-violet: oklch(0.65 0.18 300);
+  /* prism gradient — blue-to-orange electric sweep */
+  --prism-amber: oklch(0.72 0.15 45);            /* #F68048 */
+  --prism-coral: oklch(0.65 0.18 25);
+  --prism-teal: oklch(0.48 0.14 265);            /* #2845D6 bright blue */
+  --prism-violet: oklch(0.45 0.18 295);
   --prism-gradient: linear-gradient(
     135deg,
-    var(--prism-coral),
     var(--prism-amber),
-    var(--prism-teal),
+    var(--prism-coral),
     var(--prism-violet),
-    var(--prism-coral)
+    var(--prism-teal),
+    var(--prism-amber)
   );
 
   --img-pencil-invert: 1;
