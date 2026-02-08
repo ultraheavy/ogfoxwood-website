@@ -47,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${cabinSketch.variable}`} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col antialiased">
+    <html lang="en" className={`${dmSans.variable} ${cabinSketch.variable} overflow-x-hidden`} suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col overflow-x-hidden antialiased">
         <ThemeProvider>
           <script
             type="application/ld+json"
