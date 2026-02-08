@@ -29,7 +29,7 @@ export function BioPreview() {
       }
 
   return (
-    <section className="pt-16 pb-32">
+    <section className="border-t border-border/40 bg-background-secondary pt-16 pb-32">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Image — wider presence on desktop */}

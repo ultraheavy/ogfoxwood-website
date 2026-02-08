@@ -29,7 +29,7 @@ export function VideoEmbed() {
       }
 
   return (
-    <section className="bg-background-secondary py-20">
+    <section className="bg-background-elevated py-20">
       {/* Full-bleed prism divider — top */}
       <hr className="prism-divider" />
 

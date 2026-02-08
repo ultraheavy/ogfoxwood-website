@@ -20,7 +20,9 @@ export function CtaBooking() {
       }
 
   return (
-    <section className="pt-32 pb-24">
+    <section className="relative pt-32 pb-24">
+      {/* Subtle accent glow wash */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--accent-muted)_0%,_transparent_60%)]" />
       <Container>
         <div style={{ perspective: 800 }}>
           <motion.div {...tiltReveal} className="lg:-mx-8">
