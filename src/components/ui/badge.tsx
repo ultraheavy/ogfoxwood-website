@@ -11,7 +11,7 @@ interface BadgeProps {
 const variantStyles: Record<BadgeVariant, string> = {
   default: 'bg-surface text-foreground',
   accent: 'bg-accent-muted text-accent',
-  success: 'bg-emerald-900/30 text-emerald-400',
+  success: 'bg-success-muted text-success',
   muted: 'bg-surface text-foreground-muted',
 }
 

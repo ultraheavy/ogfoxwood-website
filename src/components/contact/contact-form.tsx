@@ -41,7 +41,7 @@ export function ContactForm() {
           aria-describedby={state.errors?.name ? 'name-error' : undefined}
         />
         {state.errors?.name && (
-          <p id="name-error" className="mt-1 text-sm text-red-400">
+          <p id="name-error" className="mt-1 text-sm text-error">
             {state.errors.name[0]}
           </p>
         )}
@@ -61,7 +61,7 @@ export function ContactForm() {
           aria-describedby={state.errors?.email ? 'email-error' : undefined}
         />
         {state.errors?.email && (
-          <p id="email-error" className="mt-1 text-sm text-red-400">
+          <p id="email-error" className="mt-1 text-sm text-error">
             {state.errors.email[0]}
           </p>
         )}
@@ -86,7 +86,7 @@ export function ContactForm() {
           ))}
         </select>
         {state.errors?.inquiryType && (
-          <p id="inquiry-error" className="mt-1 text-sm text-red-400">
+          <p id="inquiry-error" className="mt-1 text-sm text-error">
             {state.errors.inquiryType[0]}
           </p>
         )}
@@ -133,7 +133,7 @@ export function ContactForm() {
           aria-describedby={state.errors?.message ? 'message-error' : undefined}
         />
         {state.errors?.message && (
-          <p id="message-error" className="mt-1 text-sm text-red-400">
+          <p id="message-error" className="mt-1 text-sm text-error">
             {state.errors.message[0]}
           </p>
         )}

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import type { TargetAndTransition, Transition } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
@@ -24,24 +24,42 @@ const empty: AnimationProps = {}
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion()
+  const { scrollY } = useScroll()
+  const bgY = useTransform(scrollY, [0, 500], [0, 150])
 
   const anim = (delay: number): AnimationProps =>
     prefersReducedMotion ? empty : fadeUp(delay)
 
   return (
     <section className="relative flex min-h-[90vh] items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background-secondary/50 to-background" />
+      {/* Cityscape background — pencil lines that adapt to theme, parallax shift */}
+      <motion.div
+        className="absolute inset-0"
+        style={prefersReducedMotion ? undefined : { y: bgY }}
+      >
+        <Image
+          src="/images/ogfoxwood-backgorund-hero-landscape.jpg"
+          alt=""
+          fill
+          priority
+          className="img-pencil object-cover object-center opacity-15"
+          sizes="100vw"
+        />
+      </motion.div>
+
+      {/* Gradient overlays for depth and readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--accent-muted)_0%,_transparent_70%)]" />
 
       <Container className="relative z-10 py-24 text-center">
-        <motion.div {...anim(0)} className="mx-auto mb-6 w-32 sm:w-40">
+        <motion.div {...anim(0)} className="mx-auto mb-6 w-48 sm:w-64">
           <Image
-            src="/images/DJ-FoxWood-Fox-Character.png"
+            src="/images/DJ-FoxWood-Fox-Character-tb.png"
             alt="OGFoxWood fox character"
-            width={160}
-            height={220}
+            width={256}
+            height={320}
             priority
-            className="mx-auto invert brightness-90 drop-shadow-[0_0_30px_rgba(212,168,67,0.2)]"
+            className="img-pencil mx-auto drop-shadow-[0_0_30px_var(--accent-muted)]"
           />
         </motion.div>
 
@@ -54,12 +72,12 @@ export function Hero() {
 
         <motion.div {...anim(0.2)} className="mx-auto mb-2 w-72 sm:w-96">
           <Image
-            src="/images/DJ-FoxWood-Type-logo-pencil.png"
+            src="/images/DJ-FoxWood-Type-logo-pencil-tb.png"
             alt="DJ OGFoxWood"
             width={480}
             height={100}
             priority
-            className="mx-auto invert brightness-90"
+            className="img-pencil mx-auto"
           />
         </motion.div>
 

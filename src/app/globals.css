@@ -1,17 +1,95 @@
 @import "tailwindcss";
 
+/* Tell Tailwind v4 to use .dark class strategy instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ────────────────────────────────────────────
+   Light theme — pencil on paper
+   ──────────────────────────────────────────── */
 :root {
+  --background: oklch(0.95 0.01 85);
+  --background-secondary: oklch(0.91 0.015 80);
+  --foreground: oklch(0.20 0.01 250);
+  --foreground-muted: oklch(0.45 0.01 250);
+  --accent: oklch(0.50 0.12 100);
+  --accent-hover: oklch(0.43 0.14 100);
+  --accent-muted: oklch(0.50 0.12 100 / 0.15);
+  --border: oklch(0.78 0.02 80);
+  --surface: oklch(0.92 0.012 82);
+
+  /* semantic status colors */
+  --success: oklch(0.45 0.14 155);
+  --success-muted: oklch(0.45 0.14 155 / 0.12);
+  --error: oklch(0.50 0.18 25);
+  --error-muted: oklch(0.50 0.18 25 / 0.12);
+
+  /* prismatic palette — the mosaic prism accent */
+  --prism-amber: oklch(0.72 0.16 85);
+  --prism-coral: oklch(0.62 0.20 20);
+  --prism-teal: oklch(0.65 0.14 190);
+  --prism-violet: oklch(0.55 0.20 300);
+  --prism-gradient: linear-gradient(
+    135deg,
+    var(--prism-coral),
+    var(--prism-amber),
+    var(--prism-teal),
+    var(--prism-violet),
+    var(--prism-coral)
+  );
+
+  /* theme-conditional image treatment */
+  --img-pencil-invert: 0;
+  --img-pencil-brightness: 1;
+
+  /* texture overlays */
+  --bg-texture: url('/images/crumpled-paper-texture-background-creased-page-2026-01-07-01-45-06-utc.jpg');
+  --bg-texture-opacity: 0.18;
+  --bg-grain: none;
+}
+
+/* ────────────────────────────────────────────
+   Dark theme — chalk on blackboard
+   ──────────────────────────────────────────── */
+.dark {
   --background: oklch(0.13 0.01 250);
   --background-secondary: oklch(0.16 0.01 250);
   --foreground: oklch(0.95 0.01 90);
   --foreground-muted: oklch(0.65 0.01 250);
-  --accent: oklch(0.75 0.12 75);
-  --accent-hover: oklch(0.82 0.14 75);
-  --accent-muted: oklch(0.75 0.12 75 / 0.15);
+  --accent: oklch(0.78 0.11 95);
+  --accent-hover: oklch(0.85 0.13 95);
+  --accent-muted: oklch(0.78 0.11 95 / 0.18);
   --border: oklch(0.25 0.01 250);
   --surface: oklch(0.18 0.01 250);
+
+  --success: oklch(0.70 0.14 155);
+  --success-muted: oklch(0.70 0.14 155 / 0.15);
+  --error: oklch(0.70 0.16 25);
+  --error-muted: oklch(0.70 0.16 25 / 0.15);
+
+  --prism-amber: oklch(0.80 0.15 85);
+  --prism-coral: oklch(0.70 0.18 20);
+  --prism-teal: oklch(0.72 0.12 190);
+  --prism-violet: oklch(0.65 0.18 300);
+  --prism-gradient: linear-gradient(
+    135deg,
+    var(--prism-coral),
+    var(--prism-amber),
+    var(--prism-teal),
+    var(--prism-violet),
+    var(--prism-coral)
+  );
+
+  --img-pencil-invert: 1;
+  --img-pencil-brightness: 0.9;
+
+  --bg-texture: none;
+  --bg-texture-opacity: 0;
+  --bg-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
+/* ────────────────────────────────────────────
+   Tailwind v4 @theme mapping
+   ──────────────────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
@@ -22,14 +100,88 @@
   --color-accent-muted: var(--accent-muted);
   --color-border: var(--border);
   --color-surface: var(--surface);
-  --font-sans: var(--font-inter);
+  --color-prism-amber: var(--prism-amber);
+  --color-prism-coral: var(--prism-coral);
+  --color-prism-teal: var(--prism-teal);
+  --color-prism-violet: var(--prism-violet);
+  --color-success: var(--success);
+  --color-success-muted: var(--success-muted);
+  --color-error: var(--error);
+  --color-error-muted: var(--error-muted);
+  --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-cabin-sketch);
 }
 
+/* ────────────────────────────────────────────
+   Base styles
+   ──────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Paper texture (light) / chalkboard grain (dark) — applied behind all content */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--bg-texture);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: var(--bg-texture-opacity);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--bg-grain);
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* Theme-conditional image treatment for pencil art */
+.img-pencil {
+  filter: invert(var(--img-pencil-invert)) brightness(var(--img-pencil-brightness));
+}
+
+/* Prismatic divider — bold gradient line for section separators */
+.prism-divider {
+  height: 3px;
+  background: var(--prism-gradient);
+  border: none;
+  opacity: 0.8;
+}
+
+/* Prismatic border glow — subtle border accent for cards/CTAs */
+.prism-border {
+  border-image: var(--prism-gradient) 1;
+}
+
+/* Prismatic divider — animated flowing gradient for emphasis */
+@keyframes prism-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.prism-divider-animated {
+  height: 3px;
+  background: var(--prism-gradient);
+  background-size: 200% auto;
+  animation: prism-shift 4s ease-in-out infinite;
+  border: none;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prism-divider-animated { animation: none; }
 }
 
 /* Focus styles */

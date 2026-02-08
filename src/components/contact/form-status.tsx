@@ -11,8 +11,8 @@ export function FormStatus({ state }: FormStatusProps) {
     <div
       className={`rounded-lg p-4 text-sm ${
         state.success
-          ? 'bg-emerald-900/20 text-emerald-400'
-          : 'bg-red-900/20 text-red-400'
+          ? 'bg-success-muted text-success'
+          : 'bg-error-muted text-error'
       }`}
       role="alert"
     >

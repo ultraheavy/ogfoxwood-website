@@ -20,7 +20,7 @@ export function SectionHeading({
         <p className="mt-3 text-lg text-foreground-muted">{subtitle}</p>
       )}
       <div
-        className={`mt-4 h-0.5 w-16 bg-accent ${align === 'center' ? 'mx-auto' : ''}`}
+        className={`prism-divider mt-4 w-16 ${align === 'center' ? 'mx-auto' : ''}`}
       />
     </div>
   )

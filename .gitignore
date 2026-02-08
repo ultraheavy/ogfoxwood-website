@@ -50,3 +50,6 @@ next-env.d.ts
 
 # screenshots (root level only, not public/)
 /*.png
+
+# claude code
+.claude/

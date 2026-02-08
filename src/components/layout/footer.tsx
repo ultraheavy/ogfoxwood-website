@@ -4,7 +4,8 @@ import { Container } from '@/components/ui/container'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 bg-background-secondary py-12">
+    <footer className="bg-background-secondary py-12">
+      <div className="prism-divider mb-10" />
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>

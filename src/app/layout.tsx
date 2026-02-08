@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter, Cabin_Sketch } from 'next/font/google'
+import { DM_Sans, Cabin_Sketch } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { siteConfig } from '@/data/site'
 import { personJsonLd } from '@/lib/metadata'
 import './globals.css'
 
-const inter = Inter({
-  variable: '--font-inter',
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
   display: 'swap',
 })
@@ -46,17 +47,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cabinSketch.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${cabinSketch.variable}`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
-        />
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+          />
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
