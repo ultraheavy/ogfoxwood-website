@@ -35,9 +35,24 @@ export function MusicCard({ release, index }: MusicCardProps) {
         <h3 className="mb-2 text-lg font-semibold">{release.title}</h3>
 
         {release.description && (
-          <p className="mb-4 flex-1 text-sm text-foreground-muted">
+          <p className="mb-4 text-sm text-foreground-muted">
             {release.description}
           </p>
+        )}
+
+        {release.embedUrl && (
+          <div className="mb-4 overflow-hidden rounded-md">
+            <iframe
+              title={release.title}
+              width="100%"
+              height={166}
+              scrolling="no"
+              frameBorder="no"
+              allow="autoplay"
+              src={release.embedUrl}
+              className="block"
+            />
+          </div>
         )}
 
         <div className="mt-auto flex flex-wrap gap-2">

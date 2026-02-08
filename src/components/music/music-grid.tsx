@@ -15,6 +15,8 @@ const filterOptions: ReadonlyArray<{ readonly label: string; readonly value: Mus
   { label: 'Remixes', value: 'remix' },
 ]
 
+const FILTER_THRESHOLD = 2
+
 export function MusicGrid({ releases }: MusicGridProps) {
   const [activeFilter, setActiveFilter] = useState<MusicType | 'all'>('all')
 
@@ -23,26 +25,30 @@ export function MusicGrid({ releases }: MusicGridProps) {
       ? releases
       : releases.filter((r) => r.type === activeFilter)
 
+  const showFilters = releases.length >= FILTER_THRESHOLD
+
   return (
     <div>
-      <div className="mb-8 flex flex-wrap justify-center gap-2" role="tablist">
-        {filterOptions.map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            role="tab"
-            aria-selected={activeFilter === option.value}
-            onClick={() => setActiveFilter(option.value)}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              activeFilter === option.value
-                ? 'bg-accent text-background'
-                : 'bg-surface text-foreground-muted hover:text-foreground'
-            }`}
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
+      {showFilters && (
+        <div className="mb-8 flex flex-wrap justify-center gap-2" role="tablist">
+          {filterOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              role="tab"
+              aria-selected={activeFilter === option.value}
+              onClick={() => setActiveFilter(option.value)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                activeFilter === option.value
+                  ? 'bg-accent text-background'
+                  : 'bg-surface text-foreground-muted hover:text-foreground'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((release, index) => (

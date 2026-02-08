@@ -12,7 +12,6 @@ export function personJsonLd() {
     sameAs: [
       siteConfig.instagram,
       siteConfig.soundcloud,
-      siteConfig.mixcloud,
     ],
   }
 }

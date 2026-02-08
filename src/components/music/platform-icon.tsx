@@ -7,7 +7,6 @@ interface PlatformIconProps {
 
 const platformLabels: Record<Platform, string> = {
   soundcloud: 'SoundCloud',
-  mixcloud: 'Mixcloud',
   spotify: 'Spotify',
   youtube: 'YouTube',
   bandcamp: 'Bandcamp',

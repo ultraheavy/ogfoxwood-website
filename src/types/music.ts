@@ -1,6 +1,6 @@
 export type MusicType = 'mix' | 'track' | 'remix'
 
-export type Platform = 'soundcloud' | 'mixcloud' | 'spotify' | 'youtube' | 'bandcamp'
+export type Platform = 'soundcloud' | 'spotify' | 'youtube' | 'bandcamp'
 
 export interface MusicRelease {
   readonly id: string

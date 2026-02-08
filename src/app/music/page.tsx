@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/container'
 import { SectionHeading } from '@/components/ui/section-heading'
+import { SoundCloudProfile } from '@/components/music/soundcloud-profile'
 import { MusicGrid } from '@/components/music/music-grid'
 import { releases } from '@/data/music'
 
@@ -17,7 +18,13 @@ export default function MusicPage() {
           title="Music"
           subtitle="Mixes, originals, and remixes"
         />
-        <MusicGrid releases={releases} />
+
+        <SoundCloudProfile />
+
+        <div className="mt-20">
+          <h2 className="mb-8 font-heading text-2xl font-bold">Releases</h2>
+          <MusicGrid releases={releases} />
+        </div>
       </Container>
     </div>
   )

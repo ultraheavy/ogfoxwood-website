@@ -7,7 +7,6 @@ export const siteConfig = {
   email: 'bookings@ogfoxwood.com',
   instagram: 'https://instagram.com/ogfoxwood',
   soundcloud: 'https://soundcloud.com/ogfoxwood',
-  mixcloud: 'https://mixcloud.com/ogfoxwood',
 } as const
 
 export const navItems = [
