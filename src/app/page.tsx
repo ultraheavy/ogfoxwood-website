@@ -1,6 +1,6 @@
 import { Hero } from '@/components/home/hero'
 import { BioPreview } from '@/components/home/bio-preview'
-import { VideoEmbed } from '@/components/home/video-embed'
+import { SoundCloudEmbed } from '@/components/home/video-embed'
 import { CtaBooking } from '@/components/home/cta-booking'
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <Hero />
       <BioPreview />
-      <VideoEmbed />
+      <SoundCloudEmbed />
       <CtaBooking />
     </>
   )
